@@ -5,18 +5,22 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
-
+/**
+  * convert - converts to string
+  * @num: number to convert
+  * @base: base to conver to
+  * Return: char pointer
+  */
 char *convert(unsigned int num, int base)
 {
-	static char Representation[] = "0123456789ABCDEF";
+	static const char Representation[] = "0123456789ABCDEF";
 	static char buffer[50];
 	char *ptr;
 
 	ptr = &buffer[49];
-	*ptr = '\0';;
+	*ptr = '\0';
 
-	do
-	{
+	do {
 		*--ptr = Representation[num % base];
 		num /= base;
 	} while (num != 0);
@@ -26,17 +30,15 @@ char *convert(unsigned int num, int base)
 
 /**
   * _printf - my own printf function
-  * @format: format string
+  * @fmt: format string
   * @...: multiple args
   * Return: number of char printed, except /0
   */
 int _printf(const char *fmt, ...)
 {
-	const char *temp;
+	const char *temp, *s;
 
 	int i, size, len = 0;
-
-	char *s;
 
 	va_list ap;
 
@@ -58,21 +60,19 @@ int _printf(const char *fmt, ...)
 					s = va_arg(ap, char *);
 					size = strlen(s);
 					write(1, s, size);
-					len+= size;
+					len += size;
 					break;
 				case 'i':
-					s = convert(va_arg(ap, int),10);
+					s = convert(va_arg(ap, int), 10);
 					size = strlen(s);
 					write(1, s, size);
-					len+= size;
+					len += size;
 					break;
 			}
 			temp++;
 		}
-
 		write(1, temp, 1);
 	}
 	va_end(ap);
-
 	return (len);
 }
