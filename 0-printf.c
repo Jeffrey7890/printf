@@ -27,7 +27,37 @@ char *convert(unsigned int num, int base)
 	return (ptr);
 }
 
+/**
+  * decimal_helper - helper founct for decimal writ
+  * @d: signed int
+  * @len: lenght
+  */
+void decimal_helper(int d, int *len)
+{
+	char *s, c = '-';
 
+	int size;
+
+	if (d < 0)
+	{
+		d *= -1;
+		write(1, &c, 1);
+	}
+	s = convert(d, 10);
+	size = strlen(s);
+	write(1, s, size);
+	*len += size;
+}
+/**
+  * helper - helper function to reduce lines
+  * @s: string
+  * @len: lenght
+  */
+void helper(const char *s, int *len)
+{
+	write(1, s, strlen(s));
+	*len += strlen(s);
+}
 /**
   * _printf - my own printf function
   * @fmt: format string
@@ -36,9 +66,9 @@ char *convert(unsigned int num, int base)
   */
 int _printf(const char *fmt, ...)
 {
-	const char *temp, *s;
+	const char *temp;
 
-	int i, size, len = 0;
+	int i, len = 0;
 
 	va_list ap;
 
@@ -57,16 +87,13 @@ int _printf(const char *fmt, ...)
 					len++;
 					break;
 				case 's':
-					s = va_arg(ap, char *);
-					size = strlen(s);
-					write(1, s, size);
-					len += size;
+					helper(va_arg(ap, char *), &len);
 					break;
 				case 'i':
-					s = convert(va_arg(ap, int), 10);
-					size = strlen(s);
-					write(1, s, size);
-					len += size;
+					helper(convert(va_arg(ap, int), 10), &len);
+					break;
+				case 'd':
+					decimal_helper(va_arg(ap, int), &len);
 					break;
 			}
 			temp++;
