@@ -53,6 +53,7 @@ void decimal_helper(int d, int *len)
   * @s: string
   * @len: lenght
   */
+
 void helper(const char *s, int *len)
 {
 	write(1, s, strlen(s));
