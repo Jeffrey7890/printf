@@ -67,7 +67,7 @@ void helper(const char *s, int *len)
   */
 int _printf(const char *fmt, ...)
 {
-	const char *temp;
+	const char *temp, c = '%';
 
 	int i, len = 0;
 
@@ -95,6 +95,10 @@ int _printf(const char *fmt, ...)
 					break;
 				case 'd':
 					decimal_helper(va_arg(ap, int), &len);
+					break;
+				default:
+					write(1, &c, 1);
+					write(1, temp, 1);
 					break;
 			}
 			temp++;
