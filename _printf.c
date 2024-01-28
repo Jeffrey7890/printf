@@ -33,6 +33,9 @@ int _printf(const char *format, ...)
 	int cnt = 0;
 	char *s;
 
+	if (format == NULL)
+		return (-1);
+
 	va_list ap;
 
 	va_start(ap, format);
