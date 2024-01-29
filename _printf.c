@@ -64,6 +64,11 @@ int _printf(const char *format, ...)
 				s = (char *)va_arg(ap, char *);
 				cnt += _write_line(s) - 1;
 				break;
+			case '%':
+				_putchar('%');
+				break;
+			default:
+				return (-1);
 		}
 	}
 	va_end(ap);
