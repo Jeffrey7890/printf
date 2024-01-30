@@ -10,8 +10,8 @@ int main(void)
 	int len2;
 
 
-	len = _printf("Let's try %c to %crintf a simple sentence.\n", 'V', 'p');
-	len2 = printf("Let's try %c to %crintf a simple sentence.\n", 'V', 'p');
+	len = _printf("Let's try %c to %crintf a simple sentence.\n");
+	len2 = printf("Let's try %c to %crintf a simple sentence.\n");
 
 	printf("Length: [%d, %i]\n", len, len2);
 
