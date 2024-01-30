@@ -7,7 +7,7 @@
  * @numb: number to be printed
  * Return: lenght of string printed
  */
-int _printnum(int numb)
+int _printnum(int numb, int base)
 {
 	char str_numb[LEN_INT_MAX], digit;
 	int i = LEN_INT_MAX - 1, flag = 1;
@@ -29,9 +29,9 @@ int _printnum(int numb)
 
 	while (numb != 0)
 	{
-		digit = (numb % 10) + 0x30;
+		digit = (numb % base) + 0x30;
 		str_numb[i] = digit;
-		numb = numb / 10;
+		numb = numb / base;
 		i--;
 	}
 

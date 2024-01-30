@@ -29,6 +29,12 @@ int main(void)
 	printf("_printf of INT_MAX:%d\n", len);
 	printf("printf of INT_MAX: %d\n", len2);
 
+	len = _printf("Binary: [%b]\n", 052);
+	len2 = _printf("Binary: [%b]\n", 42);
+
+
+	printf("_printf of :%d\n", len);
+	printf("printf of : %d\n", len2);
 
 
 	return (0);

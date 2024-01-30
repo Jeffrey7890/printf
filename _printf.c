@@ -41,10 +41,13 @@ int _printf(const char *format, ...)
 				cnt += _write_line(s) - 1;
 				break;
 			case 'd':
-				cnt += _printnum(va_arg(ap, int)) - 1;
+				cnt += _printnum(va_arg(ap, int), 10) - 1;
 				break;
 			case 'i':
-				cnt += _printnum(va_arg(ap, int)) - 1;
+				cnt += _printnum(va_arg(ap, int), 10) - 1;
+				break;
+			case 'b':
+				cnt += _printnum(va_arg(ap, int), 2) - 1;
 				break;
 			case '%':
 				_putchar('%');
