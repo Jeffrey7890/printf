@@ -4,5 +4,7 @@
 int _printf(const char *format, ...);
 int _putchar(char c);
 int _write_line(char *s);
+int _printnum(int numb);
+
 
 #endif

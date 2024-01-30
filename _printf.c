@@ -3,25 +3,6 @@
 #include <unistd.h>
 #include <stdio.h>
 
-
-/**
- * _write_line - write a string
- * @s: string to write
- * Return: length of string
- */
-int _write_line(char *s)
-{
-	int cnt = 0;
-
-	while (*s != '\0')
-	{
-		_putchar(*s);
-		cnt++;
-		s++;
-	}
-	return (cnt);
-}
-
 /**
  * _printf - my implementation of printf function
  * @format: format string to print
@@ -32,8 +13,6 @@ int _printf(const char *format, ...)
 	char c;
 	int cnt = 0;
 	char *s;
-
-
 	va_list ap;
 
 	if (format == NULL)
@@ -50,10 +29,7 @@ int _printf(const char *format, ...)
 			format++;
 			continue;
 		}
-
 		format++;
-
-		/* Handle c, s, % */
 		switch (c = *format++)
 		{
 			case 'c':
@@ -64,6 +40,12 @@ int _printf(const char *format, ...)
 				s = (char *)va_arg(ap, char *);
 				cnt += _write_line(s) - 1;
 				break;
+			case 'd':
+				cnt += _printnum(va_arg(ap, int)) - 1;
+				break;
+			case 'i':
+				cnt += _printnum(va_arg(ap, int)) - 1;
+				break;
 			case '%':
 				_putchar('%');
 				break;
@@ -72,6 +54,5 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(ap);
-
 	return (cnt);
 }
