@@ -50,9 +50,7 @@ int _printf(const char *format, ...)
 				_putchar('%');
 				break;
 			default:
-				_putchar('%');
-				_putchar(c);
-				break;
+				return (-1);
 		}
 	}
 	va_end(ap);
