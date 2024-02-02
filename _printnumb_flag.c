@@ -60,7 +60,7 @@ char check_hex_flag(int n, int flag)
 int _printnum_flag(unsigned int numb, int base, int f_case)
 {
 	char str_numb[LEN_INT_MAX], digit;
-	int i = LEN_INT_MAX - 1, flag = 1;
+	int i = LEN_INT_MAX - 1;
 
 	str_numb[i] = '\0';
 	i--;
@@ -71,23 +71,11 @@ int _printnum_flag(unsigned int numb, int base, int f_case)
 		return (1);
 	}
 
-	if (numb < 0)
-	{
-		numb *= -1;
-		flag *= -1;
-	}
-
 	while (numb != 0)
 	{
 		digit = check_hex_flag(numb % base, f_case);
 		str_numb[i] = digit;
 		numb = numb / base;
-		i--;
-	}
-
-	if (flag < 0)
-	{
-		str_numb[i] = '-';
 		i--;
 	}
 	return (_write_line(str_numb + i + 1));
