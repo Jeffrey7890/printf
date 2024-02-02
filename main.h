@@ -8,6 +8,9 @@ int _printnum(int numb, int base);
 char check_hex(int n);
 char check_hex_flag(int n, int flag);
 int _s_write_line(char *s);
+
+
 int _printnum_flag(unsigned int numb, int base, int f_case);
 
+int _printnum_ul(unsigned long numb, int base, int f_case);
 #endif

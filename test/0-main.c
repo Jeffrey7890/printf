@@ -9,12 +9,18 @@ int main(void)
 	int len;
 	int len2;
 	unsigned int ui;
+	void *addr;
 
-
-	len = _printf("Let's try %c to %crintf a simple sentence.\n");
-	len2 = printf("Let's try %c to %crintf a simple sentence.\n");
+	len = _printf("Let's try w to rintf a simple sentence.\n");
+	len2 = printf("Let's try  to rintf a simple sentence.\n");
 	ui = (unsigned int)INT_MAX + 1024;
 
+
+	addr = (void *)0x7ffe637541f0;
+	_printf("_len %d ", _printf("Address:[%p]\n", addr));
+	printf("len %d ", printf("Address:[%p]\n", addr));
+
+	/* 
 	_printf("Unsigned hexadecimal: [%x, %X]\n", ui, -1 * ui);
 	printf("Unsigned hexadecimal: [%x, %X]\n", ui, -1 * ui);
 
@@ -49,6 +55,6 @@ int main(void)
 	printf("_printf of :%d\n", len);
 	printf("printf of : %d\n", len2);
 
-
+	*/	
 	return (0);
 }

@@ -2,7 +2,6 @@
 
 #define LEN_INT_MAX 20
 
-
 /**
  * _printnum_flag - converts number to string and prints to scree
  * @numb: number to be printed
@@ -10,7 +9,7 @@
  * @f_case: 1 for uppercase in hex
  * Return: lenght of string printed
  */
-int _printnum_flag(unsigned int numb, int base, int f_case)
+int _printnum_ul(unsigned long numb, int base, int f_case)
 {
 	char str_numb[LEN_INT_MAX], digit;
 	int i = LEN_INT_MAX - 1;

@@ -65,6 +65,10 @@ int _printf(const char *format, ...)
 			case 'u':
 				cnt += _printnum_flag(va_arg(ap, int), 10, 1) - 1;
 				break;
+			case 'p':
+				cnt += _write_line("0x");
+				cnt += _printnum_ul((unsigned long)va_arg(ap, void *),16,0) - 1;
+				break;
 			case '%':
 				_putchar('%');
 				break;
