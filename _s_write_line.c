@@ -19,7 +19,7 @@ int _s_write_line(const char *s)
 			_putchar('x');
 			if (ascii_num < 16)
 				_putchar('0');
-			_printnum(ascii_num, 16);
+			_printnum_flag(ascii_num, 16, 1);
 		}
 		else
 			_putchar(*s);
