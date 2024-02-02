@@ -2,6 +2,24 @@
 
 #define LEN_INT_MAX 20
 
+char check_hex(int n)
+{
+	if (n == 10)
+		return ('a');
+	else if (n == 11)
+		return ('b');
+	else if (n == 12)
+		return ('c');
+	else if (n == 13)
+		return ('d');
+	else if (n == 14)
+		return ('e');
+	else if (n == 15)
+		return ('f');
+	return (n + 0x30);
+}
+
+
 /**
  * _printnum - converts number to string and prints to scree
  * @numb: number to be printed
@@ -29,7 +47,7 @@ int _printnum(int numb, int base)
 
 	while (numb != 0)
 	{
-		digit = (numb % base) + 0x30;
+		digit = check_hex(numb % base);
 		str_numb[i] = digit;
 		numb = numb / base;
 		i--;

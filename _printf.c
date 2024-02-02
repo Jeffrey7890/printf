@@ -49,6 +49,12 @@ int _printf(const char *format, ...)
 			case 'b':
 				cnt += _printnum(va_arg(ap, int), 2) - 1;
 				break;
+			case 'o':
+				cnt += _printnum(va_arg(ap, int), 8) - 1;
+				break;
+			case 'x':
+				cnt += _printnum(va_arg(ap, int), 16) - 1;
+				break;
 			case '%':
 				_putchar('%');
 				break;

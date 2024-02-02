@@ -7,10 +7,10 @@ int main(void)
 
 	int number, neg_number, zero = 0;
 
-	number =98; 
-	neg_number = -12234;
+	number =052; 
+	neg_number = 0x32;
 
-	_printnum(number, 0x30);
+	_printnum(number, 2);
 	printf("\n");
 	_printnum(neg_number, 2);
 	printf("\n");
