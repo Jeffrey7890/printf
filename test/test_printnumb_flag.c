@@ -3,6 +3,6 @@
 
 int main(void)
 {
-	_s_write_line("Best School\n");
+	_s_write_line("Best\nSchool");
 	return (0);
 }

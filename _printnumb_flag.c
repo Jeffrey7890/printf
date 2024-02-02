@@ -2,6 +2,12 @@
 
 #define LEN_INT_MAX 20
 
+/**
+ * check_hex_flag - checks hex number
+ * @n: number to check for
+ * @flag: 1 to indicate upper case
+ * Return: character
+ */
 char check_hex_flag(int n, int flag)
 {
 	if (n == 10)
@@ -19,13 +25,13 @@ char check_hex_flag(int n, int flag)
 	else if (n == 12)
 	{
 		if (flag == 1)
-			return ('F');
+			return ('C');
 		return ('c');
 	}
 	else if (n == 13)
 	{
 		if (flag == 1)
-			return ('E');
+			return ('D');
 		return ('d');
 	}
 	else if (n == 14)
@@ -45,11 +51,13 @@ char check_hex_flag(int n, int flag)
 
 
 /**
- * _printnum - converts number to string and prints to scree
+ * _printnum_flag - converts number to string and prints to scree
  * @numb: number to be printed
+ * @base: base to print number in
+ * @f_case: 1 for uppercase in hex
  * Return: lenght of string printed
  */
-int _printnum_flag(int numb, int base, int f_case)
+int _printnum_flag(unsigned int numb, int base, int f_case)
 {
 	char str_numb[LEN_INT_MAX], digit;
 	int i = LEN_INT_MAX - 1, flag = 1;

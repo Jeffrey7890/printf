@@ -8,11 +8,24 @@ int main(void)
 
 	int len;
 	int len2;
+	unsigned int ui;
 
 
 	len = _printf("Let's try %c to %crintf a simple sentence.\n");
 	len2 = printf("Let's try %c to %crintf a simple sentence.\n");
+	ui = (unsigned int)INT_MAX + 1024;
 
+	_printf("Unsigned hexadecimal: [%x, %X]\n", ui, -1 * ui);
+	printf("Unsigned hexadecimal: [%x, %X]\n", ui, -1 * ui);
+
+	_printf("Unsigned: [%u]\n", ui);
+	printf("Unsigned: [%u]\n", ui);
+
+	_printf("Unsigned octal: [%o]\n", ui);
+	printf("Unsigned octal: [%o]\n", ui);
+
+	_printf("Negative:[%d]\n", -762534);
+	printf("Negative:[%d]\n", -762534);
 	printf("Length: [%d, %i]\n", len, len2);
 
 	len = _printf("%i\n", 102030);

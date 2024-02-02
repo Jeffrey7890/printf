@@ -40,6 +40,10 @@ int _printf(const char *format, ...)
 				s = (char *)va_arg(ap, char *);
 				cnt += _write_line(s) - 1;
 				break;
+			case 'S':
+				s = (char *)va_arg(ap, char *);
+				cnt += _s_write_line(s) - 1;
+				break;
 			case 'd':
 				cnt += _printnum(va_arg(ap, int), 10) - 1;
 				break;
@@ -50,10 +54,16 @@ int _printf(const char *format, ...)
 				cnt += _printnum(va_arg(ap, int), 2) - 1;
 				break;
 			case 'o':
-				cnt += _printnum(va_arg(ap, int), 8) - 1;
+				cnt += _printnum_flag(va_arg(ap, int), 8, 0) - 1;
 				break;
 			case 'x':
-				cnt += _printnum(va_arg(ap, int), 16) - 1;
+				cnt += _printnum_flag(va_arg(ap, int), 16, 0) - 1;
+				break;
+			case 'X':
+				cnt += _printnum_flag(va_arg(ap, int), 16, 1) - 1;
+				break;
+			case 'u':
+				cnt += _printnum_flag(va_arg(ap, int), 10, 1) - 1;
 				break;
 			case '%':
 				_putchar('%');

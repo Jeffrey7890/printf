@@ -6,14 +6,15 @@
  * @s: string to write
  * Return: length of string
  */
-int _s_write_line(const char *s)
+int _s_write_line(char *s)
 {
 	int cnt = 0, ascii_num;
 
 	while (*s != '\0')
 	{
 		ascii_num = *s;
-		if ((0 < ascii_num && ascii_num < 32) || ascii_num >= 127)
+
+		if ((ascii_num > 0 && ascii_num < 32) || ascii_num >= 127)
 		{
 			_putchar('\\');
 			_putchar('x');

@@ -2,6 +2,11 @@
 
 #define LEN_INT_MAX 20
 
+/**
+ * check_hex - check the hex value of number
+ * @n: number to check
+ * Return: char
+ */
 char check_hex(int n)
 {
 	if (n == 10)
@@ -23,6 +28,7 @@ char check_hex(int n)
 /**
  * _printnum - converts number to string and prints to scree
  * @numb: number to be printed
+ * @base: to convert number to
  * Return: lenght of string printed
  */
 int _printnum(int numb, int base)
